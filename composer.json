@@ -1,0 +1,16 @@
+{
+    "name": "mayconmoraes-dm/mdmvc",
+    "description": "Framework MDMVC",
+    "authors": [
+        {
+            "name": "Maycon de Moraes",
+            "email": "mayconmoraes-dm@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Core\\" : "core/",
+            "Application\\" : "app/"
+        }
+    }
+}
