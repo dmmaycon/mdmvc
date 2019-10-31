@@ -25,9 +25,7 @@ class Dispatcher
     {
         if (file_exists('././application/controller/'. $up->getClass() .'.php')) {
             $classController = "\\App\\Controller\\{$up->getClass()}";   
-            
             $obj = new $classController;
-
             if (method_exists($obj, $up->getMethod())) {
                 $method = $up->getMethod();
                 return $obj->$method();

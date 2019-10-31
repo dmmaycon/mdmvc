@@ -11,3 +11,4 @@ function debug($var, $continue = false) {
         die();
     }
 }
+

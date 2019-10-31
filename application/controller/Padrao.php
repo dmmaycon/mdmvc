@@ -1,16 +1,9 @@
 <?php
 
 namespace App\Controller;
+use Core\Classes\Controller;
 
-class Padrao
+class Padrao extends Controller
 {
-    public function index()
-    {
-        echo 'Classe Padrao - Metodo index';
-    }
-
-    public function outroMetodo()
-    {
-        echo 'Classe Padrao - Outro Metodo';
-    }
+    
 }
