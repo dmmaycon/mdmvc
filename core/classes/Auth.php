@@ -2,13 +2,20 @@
 /**
  * Author: Maycon de Moraes
  * Date:   30/10/2019
- * Description: Classe tem que validar se o usuario esta logado
+ * Description: Trait para validação do usuario
  */
 
 namespace Core\Classes;
 
-interface Auth
+trait Auth
 {
+    private $inicioLogin;
+    private $ativo;
+
+
     // verifica se o usuario esta logado
-    public function isLogado();
+    public function isLogado()
+    {
+        
+    }
 }
