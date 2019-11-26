@@ -79,9 +79,18 @@ abstract class Model
         
     }
 
-    public function delete()
+    public function delete($id)
     {
-        echo 'Exclui dados em uma tabela';
+        $prepare = "DELETE FROM $this->table WHERE $this->pk = :$this->pk";
+        // debug($valores);
+        try {
+            $stmt = $this->con->prepare($prepare);
+            $stmt->bindParam(":$this->pk", $id);
+            $stmt->execute();
+            return $stmt->rowCount();
+        } catch (\PDOException $e) {
+            echo 'Erro: ' . $e->getMessage();
+        }
     }
 
 

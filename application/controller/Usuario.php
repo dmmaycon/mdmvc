@@ -44,9 +44,6 @@ class Usuario extends \Core\Classes\Controller
     public function exemploExcluir()
     {
         $u = new \App\Model\Usuario();
-        $u->nome  = "Maycon Douglas";
-        $u->email = "mayconmoraes@email.com";
-        $u->nascimento = '1997-02-13';
-        debug($u->update(1));
+        debug($u->delete(3));
     }
 }
