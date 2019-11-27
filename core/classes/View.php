@@ -43,8 +43,9 @@ abstract class View
     {   
         $template = self::$twig->render($file, $data);
         
-        $dataBase['main'] = $template;
-
+        $dataBase['main']   = $template;
+        $dataBase['logado'] = \Core\Classes\Security::isAtivo();
+        $dataBase['session'] = $_SESSION;
         self::$twig->display('layout-base.html',$dataBase);
     }
 }

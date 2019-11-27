@@ -15,8 +15,6 @@ class Welcome extends \Core\Classes\Controller
 {
     public function index()
     {
-        \Core\Classes\View::show('welcome.html', [
-            'teste' => 'aaaaaaaaaaa'
-        ]);
+        \Core\Classes\View::show('welcome.html');
     }
 }

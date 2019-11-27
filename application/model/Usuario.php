@@ -28,7 +28,7 @@ class Usuario extends \Core\Classes\Model
 
     public function setLogin(String $login)
     {
-        $this->nome = trim(strtolower($login));
+        $this->login = trim(strtolower($login));
     }
 
     public function setEmail(String $email)
@@ -45,4 +45,21 @@ class Usuario extends \Core\Classes\Model
         $this->senha = hash('sha256', $senha);
     }
 
-} 
+
+    /**
+     * Autentica se usuario existe no banco de dados
+     */
+    public function authDb()
+    {
+        $sql = "SELECT * from " . $this->table ." WHERE login = '" . $this->data['login'] . "' and senha = '" . $this->data['senha'] . "'";
+        $ret = $this->con->query($sql)->fetch();
+
+        if (empty($ret)) {
+            return false;
+        } else {            
+            \Core\Classes\Security::loginRegister($ret);
+            return true;
+        }
+    }
+
+}

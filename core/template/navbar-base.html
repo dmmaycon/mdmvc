@@ -16,11 +16,18 @@
             <a class="nav-link disabled" href="#">Disabled</a>
           </li> -->
         </ul>
-        <form class="form-inline mt-2 mt-md-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Usuário" aria-label="Usuário">
-          <input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password">
+        {% if (logado != true) %}
+        <form class="form-inline mt-2 mt-md-0" action="/login/logar" method="POST">
+          <input class="form-control mr-sm-2" type="text" name="usuario" placeholder="Usuário" aria-label="Usuário">
+          <input class="form-control mr-sm-2" type="password" name="senha" placeholder="Password" aria-label="Password">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logar</button>
         </form>
+        {% else %}
+          <span class="navbar-brand">Bem vindo, {{session['nome']}}</span>
+          <a class="btn btn-outline-success my-2 my-sm-0" >Perfil</a>
+          <a class="btn btn-outline-success my-2 my-sm-0" href="/login/logof">Sair</a>
+        </form>
+        {% endif %}
       </div>
     </nav>
 </header>

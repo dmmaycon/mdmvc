@@ -137,3 +137,8 @@ function arrToJson(Array $arr, $recursive = false)
 	echo json_encode($arr);
 	ob_end_flush(); // desativa o buffer de saida
 }
+
+function redirect(String $page)
+{
+	header('Location: '.$page);
+}
