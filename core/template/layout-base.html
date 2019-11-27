@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Base do Framework MDMVC">
+    <meta name="author" content="Maycon de Moraes">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap-reboot.min.css">
+    <link href="/assets/css/sticky-footer-navbar.css" rel="stylesheet">
+    <title>MDMVC</title>
+</head>
+<body>
+    <!-- toda a applicação fica dentro desta div -->
+    {% include 'navbar-base.html'%}
+    
+    <main role="main" class="container">
+        {{ main | raw }}
+    </main>
+
+    {% include 'footer-base.html'%}
+    
+
+    <script src="/assets/js/jquery-3.4.1.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+</body>
+</html>

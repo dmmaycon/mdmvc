@@ -2,12 +2,12 @@
 /**
  * Author: Maycon de Moraes
  * Date:   30/10/2019
- * Description: Trait para validação do usuario
+ * Description: Trait de segurança da aplicação
  */
 
 namespace Core\Classes;
 
-trait Auth
+trait Security
 {
     private $inicioLogin;
     private $ativo;
