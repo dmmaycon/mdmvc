@@ -19,9 +19,9 @@ class Login extends \Core\Classes\Controller
             $usuario->setLogin($this->post['usuario']);
             $usuario->setSenha($this->post['senha']);
             $usuario->authDb();
-            redirect('/Welcome');
+            redirect(DEFAULTCONTROLLER.'\logado');
         } else {
-            redirect('/Welcome');
+            redirect(DEFAULTCONTROLLER);
         }
     }
 
@@ -29,6 +29,6 @@ class Login extends \Core\Classes\Controller
     public function logof()
     {
         \Core\Classes\Security::destroy();
-        redirect('/Welcome');
+        redirect(DEFAULTCONTROLLER);
     }
 }

@@ -20,8 +20,11 @@ abstract class Controller
     /**
      * Construtor padrão do controller base
      */
-    public function __construct()
+    public function __construct(Bool $logado = true)
     {
+        if ($logado) {
+            $this->logado();
+        }
         $this->filterData(); // sanitiza o $_POST
         $this->twig = View::getInstanceTwig();
     }
@@ -57,5 +60,20 @@ abstract class Controller
             return false;
         }
         return true;
+    }
+
+
+    /**
+     * Este método fornece a segurança para métodos que 
+     * exijam que o usuário esteja logado
+     * Se todo o controller exigir autenticação basta 
+     * informar ele no contrutor
+     * Para uso em métodos basta chamar ele a cada metodo
+     */
+    protected function logado()
+    {
+        if(!\Core\Classes\Security::isAtivo()){
+            redirect('/');
+        } 
     }
 }

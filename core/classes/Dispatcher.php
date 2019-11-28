@@ -34,7 +34,7 @@ class Dispatcher
             }
             
         } else {
-            echo 'não achou';   
+            redirect(DEFAULTCONTROLLER);
         }
     }
 }

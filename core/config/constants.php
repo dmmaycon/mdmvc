@@ -1,0 +1,3 @@
+<?php
+
+define('DEFAULTCONTROLLER', '/Welcome');
