@@ -29,7 +29,7 @@ class Usuario extends \Core\Classes\Controller
         $u->email = "joao@email.com";
         $u->nascimento = '2000-01-02';
 
-        debug($u->insert(1));
+        debug($u->insert());
     }
 
     public function exemploAlterar()
