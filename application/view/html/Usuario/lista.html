@@ -1,0 +1,23 @@
+<a href="/Usuario/form?op=inclui" class="btn btn-success">Cadastrar</a>
+<table class="table table-striped">
+    <thead>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Login</th>
+        <th>Email</th>
+        <th></th>
+        <th></th>
+    </thead>
+    <tbody>
+        {% for u in usuarios %}
+        <tr>
+            <td>{{u.id}}</td>
+            <td>{{u.nome}}</td>
+            <td>{{u.login}}</td>
+            <td>{{u.email}}</td>
+            <td> <a href="/Usuario/form?op=altera&id={{u.id}}" class="btn btn-primary"> Alterar </a> </td>
+            <td> <a href="/Usuario/recebePost?op=deleta&id={{u.id}}" class="btn btn-danger"> Excluir </a> </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

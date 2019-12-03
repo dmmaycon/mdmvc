@@ -26,13 +26,12 @@ class UrlParser
      */
     private function getUrlData()
     {
-        $this->url = $_SERVER['REQUEST_URI'];
+        $this->url = $_SERVER['PATH_INFO'] ?? $_SERVER['REQUEST_URI'];
         $arrUrl = explode('/', $this->url);
         unset($arrUrl[0]);
         $this->class  = $arrUrl[1]  ??  'Padrao';
         $this->method = $arrUrl[2]  ??  'index';
     }
-
 
     // metodos acessores
     public function getClass()

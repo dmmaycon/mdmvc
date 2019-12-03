@@ -12,38 +12,69 @@ class Usuario extends \Core\Classes\Controller
 {
     public function index()
     {
-        $this->exemploListar();
+        $this->listar();
     }
 
-    public function exemploListar()
+    public function listar()
     {
         $u = new \App\Model\Usuario;
-        debug($u->get());   
+        \Core\Classes\View::show('Usuario/lista.html', [
+            'usuarios' => $u->get()
+        ]);  
     }
 
 
-    public function exemploInserir()
+    /**
+     * Exibe o form para operacoes de cadastro e alteracao e exclusao
+     */
+    public function form()
     {
-        $u = new \App\Model\Usuario;
-        $u->nome  = "Joao";
-        $u->email = "joao@email.com";
-        $u->nascimento = '2000-01-02';
-
-        debug($u->insert());
+        $op = $_GET['op'];
+        $data = [];
+        $data['op'] = $op;
+        switch ($op) {
+            case 'altera':
+                $id = $_GET['id'];
+                $u = new \App\Model\Usuario;
+                $data['usuario'] = $u->get($id);
+                break;
+        }
+        \Core\Classes\View::show('Usuario/form.html',$data);
     }
 
-    public function exemploAlterar()
-    {
-        $u = new \App\Model\Usuario();
-        $u->nome  = "Maycon Douglas";
-        $u->email = "mayconmoraes@email.com";
-        $u->nascimento = '1997-02-13';
-        debug($u->update(1));
-    }
 
-    public function exemploExcluir()
+    /**
+     * Exibe o form para operacoes de cadastro e alteracao e exclusao
+     */
+    public function recebePost()
     {
-        $u = new \App\Model\Usuario();
-        debug($u->delete(3));
+        $op = $_GET['op'];
+        $data = [];
+        switch ($op) {
+            case 'inclui':
+                $u = new \App\Model\Usuario;
+                $u->setNome($this->post['nome']);
+                $u->setLogin($this->post['login']);
+                $u->setEmail($this->post['email']);
+                $u->setSenha($this->post['senha']);
+                $u->insert();
+                break;
+            case 'altera':
+                $u = new \App\Model\Usuario;
+                $u->setNome($this->post['nome']);
+                $u->setLogin($this->post['login']);
+                $u->setEmail($this->post['email']);
+                if ($this->post['senha'] != '') {
+                    $u->setSenha($this->post['senha']);
+                }
+                $u->update($this->post['id']);
+                break;
+            case 'deleta':
+                $u = new \App\Model\Usuario();
+                $u->delete($_GET['id']);
+                break;
+        }
+
+        $this->index();
     }
 }
