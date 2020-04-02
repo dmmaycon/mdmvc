@@ -12,9 +12,10 @@ Framework simples que foi construido para auxiliar o aprendizado de alunos de pr
 
 1. Clone o repositorio: `git clone https://github.com/mayconmoraes-dm/mdmvc`
 2. Entre da pasta: `cd mdmdev` 
-3. Utilize o servidor de desenvolvimento do PHP: `php -S localhost:80`
-4. Execute o dump.sql (mdmdev/config/dump.sql)
-5. Configure o arquivo (mdmdev/config/config.ini) para sua base de dados
+3. Rode o comando: `composer install` 
+4. Utilize o servidor de desenvolvimento do PHP: `php -S localhost:80`
+5. Execute o dump.sql (mdmdev/config/dump.sql)
+6. Configure o arquivo (mdmdev/config/config.ini) para sua base de dados
 7. Acesso o navegador no endereço http:localhost
 8. Faça login na aplicação com o usuário: admin e senha: admin
 
