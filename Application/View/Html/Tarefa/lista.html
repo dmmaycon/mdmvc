@@ -1,0 +1,23 @@
+<a href="/tarefa/form?op=inclui" class="btn btn-success">Cadastrar</a>
+<table class="table table-striped">
+    <thead>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Status</th>
+        <th></th>
+        <th></th>
+    </thead>
+    <tbody>
+        {% for tarefa in tarefas %}
+        <tr>
+            <td>{{tarefa.id}}</td>
+            <td>{{tarefa.nome}}</td>
+            <td>{{tarefa.descricao}}</td>
+            <td>{{tarefa.status ? 'Encerrado' : 'Aberto'}}</td>
+            <td> <a href="/tarefa/form?op=altera&id={{tarefa.id}}" class="btn btn-primary"> Alterar </a> </td>
+            <td> <a href="/tarefa/recebePost?op=deleta&id={{tarefa.id}}" class="btn btn-danger"> Excluir </a> </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
