@@ -67,7 +67,7 @@ abstract class Controller
      * Este método fornece a segurança para métodos que 
      * exijam que o usuário esteja logado
      * Se todo o controller exigir autenticação basta 
-     * informar ele no contrutor
+     * informar ele no construtor
      * Para uso em métodos basta chamar ele a cada metodo
      */
     protected function logado()

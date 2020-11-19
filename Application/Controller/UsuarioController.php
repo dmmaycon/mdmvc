@@ -8,7 +8,7 @@
 namespace App\Controller;
 
 
-class Usuario extends \Core\Classes\Controller
+class UsuarioController extends \Core\Classes\Controller
 {
     public function index()
     {

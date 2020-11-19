@@ -36,7 +36,7 @@ class Usuario extends \Core\Classes\Model
         if (filter_var(trim($email), FILTER_VALIDATE_EMAIL)) {
             $this->email = trim($email);
         } else {
-            throw new Exception("Invalid E-mail", 1);   
+            throw new \Exception("Invalid E-mail", 1);   
         }
     }
 
@@ -53,7 +53,6 @@ class Usuario extends \Core\Classes\Model
     {
         $sql = "SELECT * from " . $this->table ." WHERE login = '" . $this->data['login'] . "' and senha = '" . $this->data['senha'] . "'";
         $ret = $this->con->query($sql)->fetch();
-
         if (empty($ret)) {
             return false;
         } else {            

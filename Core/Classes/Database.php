@@ -7,6 +7,7 @@
 
 namespace Core\Classes;
 
+use PDO;
 
 class Database
 {
@@ -28,16 +29,22 @@ class Database
         try {
             if (!isset(self::$db)) {
                 if (file_exists(self::$pathFileConfig)) {
-                    $ini = parse_ini_file(self::$pathFileConfig);
-                    self::$drive    = $ini['drive'];
-                    self::$host     = $ini['host'];
-                    self::$dbName   = $ini['dbName'];
-                    self::$user     = $ini['user'];
-                    self::$password = $ini['password'];                
-                    // adciona o PDO para a instancia estatica do db
-                    self::$db = new \PDO(''. self::$drive .':host='. self::$host .';dbname=' . self::$dbName .'', self::$user, self::$password); 
+                    $ini = parse_ini_file(self::$pathFileConfig); 
+
+                    if ($ini['mode'] == 'sqlite') {
+                        self::$db = new \PDO('sqlite:'.'././Core/Config/database.db');
+                    } else {
+                        self::$drive    = $ini['drive'];
+                        self::$host     = $ini['host'];
+                        self::$dbName   = $ini['dbName'];
+                        self::$user     = $ini['user'];
+                        self::$password = $ini['password'];                
+                        // adciona o PDO para a instancia estatica do db
+                        self::$db = new \PDO(''. self::$drive .':host='. self::$host .';dbname=' . self::$dbName .'', self::$user, self::$password);                         
+                    }   
                     self::$db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-                    self::$db->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_OBJ); 
+                    self::$db->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_OBJ);            
+                   
                } else {
                    die('Arquivo de configuração de banco de dados não existente!');
                }

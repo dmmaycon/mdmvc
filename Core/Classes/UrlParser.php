@@ -29,7 +29,7 @@ class UrlParser
         $this->url = $_SERVER['PATH_INFO'] ?? $_SERVER['REQUEST_URI'];
         $arrUrl = explode('/', $this->url);
         unset($arrUrl[0]);
-        $this->class  = $arrUrl[1]  ??  'Padrao';
+        $this->class  = ucfirst($arrUrl[1])  ??  'Padrao';
         $this->method = $arrUrl[2]  ??  'index';
     }
 

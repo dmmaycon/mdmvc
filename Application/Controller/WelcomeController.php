@@ -11,7 +11,7 @@
 namespace App\Controller;
 
 
-class Welcome extends \Core\Classes\Controller
+class WelcomeController extends \Core\Classes\Controller
 {
     /**
      * Sobrescreve o contrutor padrão para que o controller
@@ -31,6 +31,7 @@ class Welcome extends \Core\Classes\Controller
     // Método que exige autenticação
     public function logado()
     {
+        parent::logado();
         \Core\Classes\View::show('welcome.html', [
             'logado' => 'Você está logado!'
         ]);

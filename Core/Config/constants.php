@@ -1,3 +1,3 @@
 <?php
 
-define('DEFAULTCONTROLLER', '/Welcome');
+define('DEFAULTCONTROLLER', '/welcome');
