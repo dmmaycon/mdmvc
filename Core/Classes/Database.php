@@ -7,7 +7,6 @@
 
 namespace Core\Classes;
 
-use \Core\Classes\Database;
 
 class Database
 {
@@ -19,7 +18,7 @@ class Database
 
     public static $db;
 
-    private static $pathFileConfig = '././core/config/config.ini';
+    private static $pathFileConfig = '././Core/Config/config.ini';
 
     // implementação do padrão de projetos singleton
     private function __construct(){}

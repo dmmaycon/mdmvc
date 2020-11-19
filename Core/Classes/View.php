@@ -9,9 +9,9 @@ namespace Core\Classes;
 
 abstract class View
 {
-    private static $fileAppPathView     = '././application/view/html'; 
-    private static $fileCorePathView    = '././core/template';
-    private static $pathCache           = '././application/view/cache';
+    private static $fileAppPathView     = '././Application/View/Html'; 
+    private static $fileCorePathView    = '././Core/Template';
+    private static $pathCache           = '././Application/View/Cache';
     private static $autoReload          = true; 
 
     public static $twig;

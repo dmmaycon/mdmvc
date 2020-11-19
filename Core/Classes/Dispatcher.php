@@ -23,7 +23,7 @@ class Dispatcher
 
     public function setRoute(UrlParser $up)
     {
-        if (file_exists('././application/controller/'. $up->getClass() .'.php')) {
+        if (file_exists('././Application/Controller/'. $up->getClass() .'.php')) {
             $classController = "\\App\\Controller\\{$up->getClass()}";   
             $obj = new $classController;
             if (method_exists($obj, $up->getMethod())) {
