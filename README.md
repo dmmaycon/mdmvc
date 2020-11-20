@@ -12,7 +12,7 @@ Framework simples que foi construido para auxiliar o aprendizado de alunos de pr
 ### PASSO A PASSO PARA EXECUTAR O FRAMEWORK:
 
 1. Clone o repositorio: `git clone https://github.com/dmmaycon/mdmvc`
-2. Entre da pasta: `cd mdmdev` 
+2. Entre da pasta: `cd mdmvc` 
 3. Rode o comando: `composer install` 
 4. Utilize o servidor de desenvolvimento do PHP: `php -S localhost:80`
 5. Abra o navegador no endereço `http://localhost:80`
